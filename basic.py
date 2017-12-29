@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import random
 from pepe import pepedatabase
+from giphy import Gif
+from config import token
 
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
@@ -76,5 +78,14 @@ async def randompepe():
     pepe = random.choice(pepedatabase)
     await bot.say(pepe)
 
+@bot.command()
+async def randomboi():
+	boi = Gif('datboi', 50).random()
+	await bot.say(boi)
 
-bot.run('MzkzNDk4NjcwOTM2NDg5OTg1.DR2p4w.K5PckfQVABMpk2C81GNI2UA6drM')
+@bot.command()
+async def giphy(term: str):
+        _gif = Gif(term, 50).random()
+        await bot.say(_gif)
+
+bot.run(token)

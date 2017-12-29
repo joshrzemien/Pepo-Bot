@@ -1,0 +1,29 @@
+import time
+import giphy_client
+from giphy_client.rest import ApiException
+from pprint import pprint 
+import json 
+import random as r
+# create an instance of the API class
+api_instance = giphy_client.DefaultApi()
+api_key = 'dc6zaTOxFJmzC' # str | Giphy API Key
+
+class Gif(object):
+	def __init__(self, _term, limit):
+		self.term = _term
+		self.api = giphy_client.DefaultApi()
+		self.key = 'dc6zaTOxFJmzC'
+		self.limit = limit
+	def search(self):
+		_results = self.api.gifs_search_get(api_key, self.term, limit = self.limit).to_dict()['data'][0]['url']
+		return _results
+
+	def random(self):
+		_results = self.api.gifs_search_get(api_key, self.term).to_dict()['data']
+		_results = _results[r.randrange(0, len(_results))]['url']
+		return _results
+
+#if __name__ == '__main__':
+#	pprint(Gif('dat boi', 1).search())
+#	print(Gif('dat boi', 1).random())
+	
