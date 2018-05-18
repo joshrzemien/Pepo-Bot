@@ -3,12 +3,6 @@ from discord.ext import commands
 import random
 from pepe import pepedatabase
 from giphy import Gif
-import json
-
-with open('config.json') as f:
-    config = json.load(f)
-
-token = config["discord"]["token"]
 
 
 description = '''An example bot to showcase the discord.ext.commands extension
@@ -93,5 +87,3 @@ async def randomboi():
 async def gif(term: str):
         _gif = Gif(term, 50).random()
         await bot.say(_gif)
-
-bot.run(token)
