@@ -90,7 +90,7 @@ async def randomboi():
 	await bot.say(boi)
 
 @bot.command()
-async def giphy(term: str):
+async def gif(term: str):
         _gif = Gif(term, 50).random()
         await bot.say(_gif)
 
