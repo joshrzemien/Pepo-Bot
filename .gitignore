@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 config.json
-basic.py.swp
+.basic.py.swp
 
 # C extensions
 *.so
