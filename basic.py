@@ -3,7 +3,13 @@ from discord.ext import commands
 import random
 from pepe import pepedatabase
 from giphy import Gif
-from config import token
+import json
+
+with open('config.json') as f:
+    config = json.load(f)
+
+token = config["discord"]["token"]
+
 
 description = '''An example bot to showcase the discord.ext.commands extension
 module.
