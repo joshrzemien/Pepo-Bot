@@ -4,8 +4,7 @@ __pycache__/
 *$py.class
 config.json
 .basic.py.swp
-ideas2
-ideas
+
 
 # C extensions
 *.so
