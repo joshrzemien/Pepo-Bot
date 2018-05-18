@@ -5,9 +5,7 @@ from pepe import pepedatabase
 from giphy import Gif
 
 
-description = '''An example bot to showcase the discord.ext.commands extension
-module.
-There are a number of utility commands being showcased here.'''
+description = '''Meme bot for real memers'''
 bot = commands.Bot(command_prefix='?', description=description)
 client = discord.Client()
 
@@ -80,10 +78,12 @@ async def randompepe():
 
 @bot.command()
 async def randomboi():
-	boi = Gif('datboi', 50).random()
-	await bot.say(boi)
+    """Posts a random dat boi"""
+    boi = Gif('datboi', 50).random()
+    await bot.say(boi)
 
 @bot.command()
 async def gif(term: str):
-        _gif = Gif(term, 50).random()
-        await bot.say(_gif)
+    """Searches for and posts a gif from giphy"""
+    _gif = Gif(term, 50).random()
+    await bot.say(_gif)
