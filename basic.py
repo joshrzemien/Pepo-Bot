@@ -3,6 +3,7 @@ from discord.ext import commands
 import random
 from pepe import pepedatabase
 from giphy import Gif
+import fortnite
 
 
 description = '''Meme bot for real memers'''
@@ -87,3 +88,20 @@ async def gif(term: str):
     """Searches for and posts a gif from giphy"""
     _gif = Gif(term, 50).random()
     await bot.say(_gif)
+
+@bot.command()
+async def fortnitestats(nickname,platform):
+    """Posts lifetime stats from fortnitetracker.com
+    Format: ?fortnitestats nickname platform"""
+    responseraw = fortnite.fortniteTracker(nickname,platform)
+    dick = responseraw.get("lifeTimeStats")
+    responsedict = {item["key"]:item for item in dick}
+    mp = responsedict.get("Matches Played")["value"]
+    w = responsedict.get("Wins")["value"]
+    wp = responsedict.get("Win%")["value"]
+    k = responsedict.get("Kills")["value"]
+    kd = responsedict.get("K/d")["value"]
+    response = """{} playing Fortnite on {} lifetime stats:
+Matches Played: {} Wins: {} Win %: {} Kills: {} K/D: {}
+    """.format(nickname,platform,mp,w,wp,k,kd)
+    await bot.say(response)
