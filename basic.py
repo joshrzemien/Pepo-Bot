@@ -79,6 +79,12 @@ async def subtract(left : int, right : int):
     await bot.say(left - right)
 
 @bot.command()
+async def randompepe():
+    """Posts a random Pepe"""
+    pepe = random.choice(pepedatabase)
+    await bot.say(pepe)
+
+@bot.command()
 async def randomboi():
 	boi = Gif('datboi', 50).random()
     await bot.say("OH SHIT WHADUUUPPPPPPPPP!!!!!!!!!!")
