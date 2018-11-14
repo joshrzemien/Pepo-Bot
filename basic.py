@@ -87,11 +87,23 @@ async def randompepe():
 @bot.command()
 async def randomboi():
 	boi = Gif('datboi', 50).random()
+    await bot.say("OH SHIT WHADUUUPPPPPPPPP!!!!!!!!!!")
 	await bot.say(boi)
 
 @bot.command()
-async def giphy(term: str):
+async def givemegif(term: str):
+    _gif = Gif(term, 50).random()
+    await bot.say(_gif)
+
+@bot.command()
+async def givememanygifs(term: str, times: int):
+    itor = 0
+    await bot.say("YITBOSSSSSSS")
+    while True:
         _gif = Gif(term, 50).random()
         await bot.say(_gif)
+        itor += 1
+        if itor >= times:
+            break
 
 bot.run(token)
